@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Abuja International Academy</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-white">
+
+    <!-- ===== HEADER ===== -->
+    <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 px-4 sm:px-6 lg:px-8 header-scrolled">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold font-serif text-navy">AIA</a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden lg:flex items-center space-x-8">
+                <a href="index.html" class="nav-link link-underline text-navy hover:text-gold transition-colors" data-page="home">Home</a>
+                <a href="about.html" class="nav-link link-underline text-navy hover:text-gold transition-colors" data-page="about">About Us</a>
+                <a href="academics.html" class="nav-link link-underline text-navy hover:text-gold transition-colors" data-page="academics">Academics</a>
+                <a href="admissions.html" class="nav-link link-underline text-navy hover:text-gold transition-colors" data-page="admissions">Admissions</a>
+                <a href="gallery.html" class="nav-link link-underline text-navy hover:text-gold transition-colors" data-page="gallery">Gallery</a>
+                <div class="relative group">
+                    <a href="news.html" class="nav-link link-underline text-navy hover:text-gold transition-colors flex items-center cursor-pointer">
+                        News & Events
+                        <i class="fas fa-chevron-down ml-2 text-xs transition-transform group-hover:rotate-180"></i>
+                    </a>
+                    <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 w-48 z-50 py-1">
+                        <a href="calendar.html" class="block px-4 py-2 text-navy hover:bg-gray-100 hover:text-gold">Events Calendar</a>
+                    </div>
+                </div>
+                <a href="contact.html" class="nav-link link-underline text-navy hover:text-gold transition-colors" data-page="contact">Contact</a>
+            </nav>
+
+            <div class="flex items-center">
+                <a href="contact.html" class="hidden lg:inline-block bg-gold text-white font-bold py-2 px-6 rounded-lg shadow-md hover:bg-opacity-90 transition-all transform hover:scale-105">Enquire Now</a>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="lg:hidden text-navy text-2xl ml-4">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== MOBILE MENU ===== -->
+    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-64 bg-navy text-white p-8 transform translate-x-full transition-transform duration-300 ease-in-out z-50">
+        <button id="close-mobile-menu" class="absolute top-6 right-6 text-2xl">&times;</button>
+        <nav class="flex flex-col space-y-6 mt-12">
+            <a href="index.html" class="nav-link text-lg" data-page="home">Home</a>
+            <a href="about.html" class="nav-link text-lg" data-page="about">About Us</a>
+            <a href="academics.html" class="nav-link text-lg" data-page="academics">Academics</a>
+            <a href="admissions.html" class="nav-link text-lg" data-page="admissions">Admissions</a>
+            <a href="gallery.html" class="nav-link text-lg" data-page="gallery">Gallery</a>
+            <a href="contact.html" class="nav-link text-lg" data-page="contact">Contact</a>
+        </nav>
+    </div>
+
+    <!-- ===== MAIN CONTENT CONTAINER ===== -->
+    <main id="main-content" class="pt-24 lg:pt-32">
+        <section class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h1 class="text-4xl lg:text-6xl font-serif text-navy text-center mb-4">Gallery</h1>
+                <p class="text-center text-lg max-w-2xl mx-auto mb-12">Explore the vibrant life, events, and culture of Abuja International Academy.</p>
+                
+                <!-- Filter Buttons -->
+                <div id="gallery-filters" class="flex flex-wrap justify-center gap-2 mb-12">
+                    <button class="gallery-filter-btn active bg-navy text-white py-2 px-4 rounded-full">All</button>
+                    <button class="gallery-filter-btn bg-white text-navy py-2 px-4 rounded-full" data-filter="graduation">Graduation 2025</button>
+                    <button class="gallery-filter-btn bg-white text-navy py-2 px-4 rounded-full" data-filter="sports">Sports Day</button>
+                    <button class="gallery-filter-btn bg-white text-navy py-2 px-4 rounded-full" data-filter="cultural">Cultural Parade</button>
+                    <button class="gallery-filter-btn bg-white text-navy py-2 px-4 rounded-full" data-filter="student-life">Student Life</button>
+                </div>
+
+                <!-- Gallery Grid -->
+                <div id="gallery-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <div class="gallery-item" data-category="graduation">
+                        <img src="https://placehold.co/600x800/D4AF37/FFFFFF?text=Graduation+1" alt="Graduation" class="w-full h-full object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity">
+                    </div>
+                    <div class="gallery-item" data-category="sports">
+                        <img src="https://placehold.co/600x400/001F3F/FFFFFF?text=Sports+1" alt="Sports" class="w-full h-full object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity">
+                    </div>
+                    <div class="gallery-item" data-category="student-life">
+                        <img src="https://placehold.co/600x600/001F3F/FFFFFF?text=Student+Life+1" alt="Student Life" class="w-full h-full object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity">
+                    </div>
+                    <div class="gallery-item" data-category="cultural">
+                        <img src="https://placehold.co/600x700/D4AF37/FFFFFF?text=Cultural+1" alt="Cultural Day" class="w-full h-full object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity">
+                    </div>
+                    <div class="gallery-item" data-category="graduation">
+                        <img src="https://placehold.co/600x500/D4AF37/FFFFFF?text=Graduation+2" alt="Graduation" class="w-full h-full object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity">
+                    </div>
+                     <div class="gallery-item" data-category="sports">
+                        <img src="https://placehold.co/600x600/001F3F/FFFFFF?text=Sports+2" alt="Sports" class="w-full h-full object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity">
+                    </div>
+                    <div class="gallery-item" data-category="student-life">
+                        <img src="https://placehold.co/600x800/001F3F/FFFFFF?text=Student+Life+2" alt="Student Life" class="w-full h-full object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity">
+                    </div>
+                     <div class="gallery-item" data-category="cultural">
+                        <img src="https://placehold.co/600x400/D4AF37/FFFFFF?text=Cultural+2" alt="Cultural Day" class="w-full h-full object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="bg-navy text-white">
+        <div class="container mx-auto px-4 py-12">
+            <div class="grid md:grid-cols-4 gap-8 text-center md:text-left">
+                <div>
+                    <h4 class="text-xl font-serif mb-4">Abuja Int'l Academy</h4>
+                    <p class="text-gray-400">Building Future Leaders</p>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-4">Quick Links</h5>
+                    <nav class="flex flex-col space-y-2">
+                        <a href="about.html" class="text-gray-300 hover:text-gold">About Us</a>
+                        <a href="admissions.html" class="text-gray-300 hover:text-gold">Admissions</a>
+                        <a href="contact.html" class="text-gray-300 hover:text-gold">Contact</a>
+                    </nav>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-4">Contact Us</h5>
+                    <p class="text-gray-300">info@aia.edu.ng</p>
+                    <p class="text-gray-300">+234 801 234 5678</p>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-4">Follow Us</h5>
+                    <div class="flex justify-center md:justify-start space-x-4 text-2xl">
+                        <a href="#" class="hover:text-gold"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="hover:text-gold"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="hover:text-gold"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="hover:text-gold"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center text-gray-500 border-t border-gray-700 mt-8 pt-6">
+                <p>&copy; <span id="current-year"></span> Abuja International Academy. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 hidden">
+        <button id="lightbox-close" class="absolute top-6 right-8 text-white text-5xl font-light">&times;</button>
+        <button id="lightbox-prev" class="absolute left-8 text-white text-4xl"><i class="fas fa-chevron-left"></i></button>
+        <button id="lightbox-next" class="absolute right-8 text-white text-4xl"><i class="fas fa-chevron-right"></i></button>
+        <img id="lightbox-img" src="" alt="Gallery image" class="max-w-full max-h-full">
+    </div>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

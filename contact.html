@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Abuja International Academy</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-white">
+
+    <!-- ===== HEADER ===== -->
+    <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 px-4 sm:px-6 lg:px-8 header-scrolled">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold font-serif text-navy">AIA</a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden lg:flex items-center space-x-8">
+                <a href="index.html" class="nav-link link-underline text-navy hover:text-gold transition-colors" data-page="home">Home</a>
+                <a href="about.html" class="nav-link link-underline text-navy hover:text-gold transition-colors" data-page="about">About Us</a>
+                <a href="academics.html" class="nav-link link-underline text-navy hover:text-gold transition-colors" data-page="academics">Academics</a>
+                <a href="admissions.html" class="nav-link link-underline text-navy hover:text-gold transition-colors" data-page="admissions">Admissions</a>
+                <a href="gallery.html" class="nav-link link-underline text-navy hover:text-gold transition-colors" data-page="gallery">Gallery</a>
+                <div class="relative group">
+                    <a href="news.html" class="nav-link link-underline text-navy hover:text-gold transition-colors flex items-center cursor-pointer">
+                        News & Events
+                        <i class="fas fa-chevron-down ml-2 text-xs transition-transform group-hover:rotate-180"></i>
+                    </a>
+                    <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 w-48 z-50 py-1">
+                        <a href="calendar.html" class="block px-4 py-2 text-navy hover:bg-gray-100 hover:text-gold">Events Calendar</a>
+                    </div>
+                </div>
+                <a href="contact.html" class="nav-link link-underline text-navy hover:text-gold transition-colors" data-page="contact">Contact</a>
+            </nav>
+
+            <div class="flex items-center">
+                <a href="contact.html" class="hidden lg:inline-block bg-gold text-white font-bold py-2 px-6 rounded-lg shadow-md hover:bg-opacity-90 transition-all transform hover:scale-105">Enquire Now</a>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="lg:hidden text-navy text-2xl ml-4">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== MOBILE MENU ===== -->
+    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-64 bg-navy text-white p-8 transform translate-x-full transition-transform duration-300 ease-in-out z-50">
+        <button id="close-mobile-menu" class="absolute top-6 right-6 text-2xl">&times;</button>
+        <nav class="flex flex-col space-y-6 mt-12">
+            <a href="index.html" class="nav-link text-lg" data-page="home">Home</a>
+            <a href="about.html" class="nav-link text-lg" data-page="about">About Us</a>
+            <a href="academics.html" class="nav-link text-lg" data-page="academics">Academics</a>
+            <a href="admissions.html" class="nav-link text-lg" data-page="admissions">Admissions</a>
+            <a href="gallery.html" class="nav-link text-lg" data-page="gallery">Gallery</a>
+            <a href="contact.html" class="nav-link text-lg" data-page="contact">Contact</a>
+        </nav>
+    </div>
+
+    <!-- ===== MAIN CONTENT CONTAINER ===== -->
+    <main id="main-content" class="pt-24 lg:pt-32">
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <h1 class="text-4xl lg:text-6xl font-serif text-navy text-center mb-12">Get In Touch</h1>
+                <div class="grid lg:grid-cols-2 gap-12">
+                    <!-- Contact Form -->
+                    <div class="bg-gray-50 p-8 rounded-lg shadow-md">
+                        <h2 class="text-3xl font-serif text-navy mb-6">Send Us a Message</h2>
+                        <form>
+                            <div class="mb-4">
+                                <label for="name" class="block text-gray-700 mb-2">Full Name</label>
+                                <input type="text" id="name" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gold">
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="block text-gray-700 mb-2">Email Address</label>
+                                <input type="email" id="email" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gold">
+                            </div>
+                            <div class="mb-4">
+                                <label for="subject" class="block text-gray-700 mb-2">Subject</label>
+                                <input type="text" id="subject" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gold">
+                            </div>
+                            <div class="mb-6">
+                                <label for="message" class="block text-gray-700 mb-2">Message</label>
+                                <textarea id="message" rows="5" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gold"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-gold text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-opacity-90 transition-all">Submit</button>
+                        </form>
+                    </div>
+                    <!-- Contact Info -->
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-2xl font-serif text-navy">City College Campus</h3>
+                            <p class="mt-2">123 Leadership Avenue, Asokoro, Abuja</p>
+                            <p><strong>Phone:</strong> +234 801 234 5678</p>
+                            <p><strong>Email:</strong> admissions.city@aia.edu.ng</p>
+                            <div class="mt-4 h-64 bg-gray-200 rounded-lg flex items-center justify-center">
+                                <p class="text-gray-500">Embedded Google Map</p>
+                            </div>
+                        </div>
+                         <div>
+                            <h3 class="text-2xl font-serif text-navy">Mararaba Campus</h3>
+                            <p class="mt-2">456 Excellence Drive, Mararaba, Nasarawa</p>
+                            <p><strong>Phone:</strong> +234 901 234 5678</p>
+                            <p><strong>Email:</strong> admissions.mararaba@aia.edu.ng</p>
+                            <div class="mt-4 h-64 bg-gray-200 rounded-lg flex items-center justify-center">
+                                <p class="text-gray-500">Embedded Google Map</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="bg-navy text-white">
+        <div class="container mx-auto px-4 py-12">
+            <div class="grid md:grid-cols-4 gap-8 text-center md:text-left">
+                <div>
+                    <h4 class="text-xl font-serif mb-4">Abuja Int'l Academy</h4>
+                    <p class="text-gray-400">Building Future Leaders</p>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-4">Quick Links</h5>
+                    <nav class="flex flex-col space-y-2">
+                        <a href="about.html" class="text-gray-300 hover:text-gold">About Us</a>
+                        <a href="admissions.html" class="text-gray-300 hover:text-gold">Admissions</a>
+                        <a href="contact.html" class="text-gray-300 hover:text-gold">Contact</a>
+                    </nav>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-4">Contact Us</h5>
+                    <p class="text-gray-300">info@aia.edu.ng</p>
+                    <p class="text-gray-300">+234 801 234 5678</p>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-4">Follow Us</h5>
+                    <div class="flex justify-center md:justify-start space-x-4 text-2xl">
+                        <a href="#" class="hover:text-gold"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="hover:text-gold"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="hover:text-gold"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="hover:text-gold"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center text-gray-500 border-t border-gray-700 mt-8 pt-6">
+                <p>&copy; <span id="current-year"></span> Abuja International Academy. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

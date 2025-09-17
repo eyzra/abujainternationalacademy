@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academics - Abuja International Academy</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-white">
+
+    <!-- ===== HEADER ===== -->
+    <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 px-4 sm:px-6 lg:px-8 header-scrolled">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold font-serif text-navy">AIA</a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden lg:flex items-center space-x-8">
+                <a href="index.html" class="nav-link link-underline text-navy hover:text-gold transition-colors" data-page="home">Home</a>
+                <a href="about.html" class="nav-link link-underline text-navy hover:text-gold transition-colors" data-page="about">About Us</a>
+                <a href="academics.html" class="nav-link link-underline text-navy hover:text-gold transition-colors" data-page="academics">Academics</a>
+                <a href="admissions.html" class="nav-link link-underline text-navy hover:text-gold transition-colors" data-page="admissions">Admissions</a>
+                <a href="gallery.html" class="nav-link link-underline text-navy hover:text-gold transition-colors" data-page="gallery">Gallery</a>
+                <div class="relative group">
+                    <a href="news.html" class="nav-link link-underline text-navy hover:text-gold transition-colors flex items-center cursor-pointer">
+                        News & Events
+                        <i class="fas fa-chevron-down ml-2 text-xs transition-transform group-hover:rotate-180"></i>
+                    </a>
+                    <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 w-48 z-50 py-1">
+                        <a href="calendar.html" class="block px-4 py-2 text-navy hover:bg-gray-100 hover:text-gold">Events Calendar</a>
+                    </div>
+                </div>
+                <a href="contact.html" class="nav-link link-underline text-navy hover:text-gold transition-colors" data-page="contact">Contact</a>
+            </nav>
+
+            <div class="flex items-center">
+                <a href="contact.html" class="hidden lg:inline-block bg-gold text-white font-bold py-2 px-6 rounded-lg shadow-md hover:bg-opacity-90 transition-all transform hover:scale-105">Enquire Now</a>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="lg:hidden text-navy text-2xl ml-4">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== MOBILE MENU ===== -->
+    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-64 bg-navy text-white p-8 transform translate-x-full transition-transform duration-300 ease-in-out z-50">
+        <button id="close-mobile-menu" class="absolute top-6 right-6 text-2xl">&times;</button>
+        <nav class="flex flex-col space-y-6 mt-12">
+            <a href="index.html" class="nav-link text-lg" data-page="home">Home</a>
+            <a href="about.html" class="nav-link text-lg" data-page="about">About Us</a>
+            <a href="academics.html" class="nav-link text-lg" data-page="academics">Academics</a>
+            <a href="admissions.html" class="nav-link text-lg" data-page="admissions">Admissions</a>
+            <a href="gallery.html" class="nav-link text-lg" data-page="gallery">Gallery</a>
+            <a href="contact.html" class="nav-link text-lg" data-page="contact">Contact</a>
+        </nav>
+    </div>
+
+    <!-- ===== MAIN CONTENT CONTAINER ===== -->
+    <main id="main-content" class="pt-24 lg:pt-32">
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <h1 class="text-4xl lg:text-6xl font-serif text-navy text-center mb-12">Academic & Co-Curricular Life</h1>
+                <div class="max-w-5xl mx-auto">
+                    <!-- Tabs -->
+                    <div class="mb-12">
+                        <div class="flex border-b border-gray-200">
+                            <button class="academic-tab-button active-tab py-2 px-6 block hover:text-gold focus:outline-none text-gold border-b-2 font-medium border-gold" data-target="primary">Primary School</button>
+                            <button class="academic-tab-button py-2 px-6 block hover:text-gold focus:outline-none text-gray-500" data-target="junior">Junior High</button>
+                            <button class="academic-tab-button py-2 px-6 block hover:text-gold focus:outline-none text-gray-500" data-target="senior">Senior High</button>
+                        </div>
+                    </div>
+
+                    <!-- Tab Content -->
+                    <div id="academic-tab-content" class="text-lg leading-relaxed">
+                        <div id="primary" class="academic-tab-pane">
+                            <h3 class="text-3xl font-serif text-navy mb-4">Primary School Curriculum</h3>
+                            <p>Our Primary School curriculum fosters a love of learning through a blend of the Nigerian and British curricula. We focus on foundational skills in literacy, numeracy, and science, while encouraging creativity through arts, music, and play-based learning.</p>
+                        </div>
+                        <div id="junior" class="academic-tab-pane hidden">
+                            <h3 class="text-3xl font-serif text-navy mb-4">Junior High School Curriculum</h3>
+                            <p>In Junior High, students transition to a more specialized subject-based curriculum. We emphasize critical thinking, problem-solving, and collaboration, preparing students for the challenges of senior secondary education and their BECE examinations.</p>
+                        </div>
+                        <div id="senior" class="academic-tab-pane hidden">
+                            <h3 class="text-3xl font-serif text-navy mb-4">Senior High School Curriculum</h3>
+                            <p>Our Senior High program offers specialized pathways in Science, Arts, and Business. We provide comprehensive preparation for WAEC, NECO, and international examinations like IGCSE and SAT, ensuring our graduates are competitive globally.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Beyond the Classroom -->
+                <div class="mt-20">
+                    <h2 class="text-4xl font-serif text-navy text-center mb-12">Beyond the Classroom</h2>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden">
+                            <img src="https://placehold.co/600x400/001F3F/FFFFFF?text=Debate+Club" class="w-full h-48 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-2xl font-serif text-navy">Debate & Public Speaking</h3>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden">
+                            <img src="https://placehold.co/600x400/D4AF37/FFFFFF?text=Athletics" class="w-full h-48 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-2xl font-serif text-navy">Sports & Athletics</h3>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden">
+                            <img src="https://placehold.co/600x400/001F3F/FFFFFF?text=Visual+Arts" class="w-full h-48 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-2xl font-serif text-navy">Arts & Culture</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="bg-navy text-white">
+        <div class="container mx-auto px-4 py-12">
+            <div class="grid md:grid-cols-4 gap-8 text-center md:text-left">
+                <div>
+                    <h4 class="text-xl font-serif mb-4">Abuja Int'l Academy</h4>
+                    <p class="text-gray-400">Building Future Leaders</p>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-4">Quick Links</h5>
+                    <nav class="flex flex-col space-y-2">
+                        <a href="about.html" class="text-gray-300 hover:text-gold">About Us</a>
+                        <a href="admissions.html" class="text-gray-300 hover:text-gold">Admissions</a>
+                        <a href="contact.html" class="text-gray-300 hover:text-gold">Contact</a>
+                    </nav>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-4">Contact Us</h5>
+                    <p class="text-gray-300">info@aia.edu.ng</p>
+                    <p class="text-gray-300">+234 801 234 5678</p>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-4">Follow Us</h5>
+                    <div class="flex justify-center md:justify-start space-x-4 text-2xl">
+                        <a href="#" class="hover:text-gold"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="hover:text-gold"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="hover:text-gold"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="hover:text-gold"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center text-gray-500 border-t border-gray-700 mt-8 pt-6">
+                <p>&copy; <span id="current-year"></span> Abuja International Academy. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
