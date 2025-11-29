@@ -1,172 +1,313 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academics - Abuja International Academy</title>
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Google Fonts -->
+    <title>Academics | Abuja International Academy</title>
+    
+    <!-- Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <!-- Custom Stylesheet -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/AIA.png" type="image/x-icon">
 </head>
-<body class="bg-white">
+<body>
 
-    <!-- ===== HEADER ===== -->
-    <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 px-4 sm:px-6 lg:px-8 header-scrolled">
-        <div class="container mx-auto flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold font-serif text-navy">AIA</a>
-            
-            <!-- Desktop Navigation -->
-            <nav class="hidden lg:flex items-center space-x-8">
-                <a href="index.html" class="nav-link link-underline text-navy hover:text-gold transition-colors" data-page="home">Home</a>
-                <a href="about.html" class="nav-link link-underline text-navy hover:text-gold transition-colors" data-page="about">About Us</a>
-                <a href="academics.html" class="nav-link link-underline text-navy hover:text-gold transition-colors" data-page="academics">Academics</a>
-                <a href="admissions.html" class="nav-link link-underline text-navy hover:text-gold transition-colors" data-page="admissions">Admissions</a>
-                <a href="gallery.html" class="nav-link link-underline text-navy hover:text-gold transition-colors" data-page="gallery">Gallery</a>
-                <div class="relative group">
-                    <a href="news.html" class="nav-link link-underline text-navy hover:text-gold transition-colors flex items-center cursor-pointer">
-                        News & Events
-                        <i class="fas fa-chevron-down ml-2 text-xs transition-transform group-hover:rotate-180"></i>
-                    </a>
-                    <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 w-48 z-50 py-1">
-                        <a href="calendar.html" class="block px-4 py-2 text-navy hover:bg-gray-100 hover:text-gold">Events Calendar</a>
-                    </div>
-                </div>
-                <a href="contact.html" class="nav-link link-underline text-navy hover:text-gold transition-colors" data-page="contact">Contact</a>
-            </nav>
+    <!-- NAV TRIGGER -->
+    <div id="crown-toggle" class="crown-toggle" title="Toggle Menu">
+        <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14"></path>
+        </svg>
+    </div>
 
-            <div class="flex items-center">
-                <a href="contact.html" class="hidden lg:inline-block bg-gold text-white font-bold py-2 px-6 rounded-lg shadow-md hover:bg-opacity-90 transition-all transform hover:scale-105">Enquire Now</a>
-                
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-button" class="lg:hidden text-navy text-2xl ml-4">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
+    <!-- SIDEBAR NAVIGATION -->
+    <aside id="side-nav" class="side-nav">
+        <div class="nav-content-vertical">
+            <div class="logo">AIA.</div>
+            <ul class="nav-links-vertical">
+                <li><a href="index.html" class="nav-link-item">Home</a></li>
+                <li><a href="about.html" class="nav-link-item">About</a></li>
+                <li><a href="campuses.html" class="nav-link-item">Campuses</a></li>
+                <li><a href="academics.html" class="nav-link-item">Academics</a></li>
+                <li><a href="news.html" class="nav-link-item">News</a></li>
+            </ul>
+            <a href="index.html#admissions" class="btn-main btn-white" style="margin-top: 2rem;">Enroll Now</a>
+        </div>
+    </aside>
+
+    <!-- ACADEMICS HERO -->
+    <header class="academics-hero">
+        <div class="hero-overlay"></div>
+        <div class="academics-hero-content reveal-up">
+            <h1 class="classic-title white-text">Academic Excellence</h1>
+            <div class="separator" style="background: var(--accent);"></div>
+            <p class="lead-text white-text">A rigorous blend of Nigerian and British Curricula designed to challenge, inspire, and prepare students for global success.</p>
         </div>
     </header>
 
-    <!-- ===== MOBILE MENU ===== -->
-    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-64 bg-navy text-white p-8 transform translate-x-full transition-transform duration-300 ease-in-out z-50">
-        <button id="close-mobile-menu" class="absolute top-6 right-6 text-2xl">&times;</button>
-        <nav class="flex flex-col space-y-6 mt-12">
-            <a href="index.html" class="nav-link text-lg" data-page="home">Home</a>
-            <a href="about.html" class="nav-link text-lg" data-page="about">About Us</a>
-            <a href="academics.html" class="nav-link text-lg" data-page="academics">Academics</a>
-            <a href="admissions.html" class="nav-link text-lg" data-page="admissions">Admissions</a>
-            <a href="gallery.html" class="nav-link text-lg" data-page="gallery">Gallery</a>
-            <a href="contact.html" class="nav-link text-lg" data-page="contact">Contact</a>
-        </nav>
-    </div>
+    <main class="page-content">
 
-    <!-- ===== MAIN CONTENT CONTAINER ===== -->
-    <main id="main-content" class="pt-24 lg:pt-32">
-        <section class="py-16 bg-white">
-            <div class="container mx-auto px-4">
-                <h1 class="text-4xl lg:text-6xl font-serif text-navy text-center mb-12">Academic & Co-Curricular Life</h1>
-                <div class="max-w-5xl mx-auto">
-                    <!-- Tabs -->
-                    <div class="mb-12">
-                        <div class="flex border-b border-gray-200">
-                            <button class="academic-tab-button active-tab py-2 px-6 block hover:text-gold focus:outline-none text-gold border-b-2 font-medium border-gold" data-target="primary">Primary School</button>
-                            <button class="academic-tab-button py-2 px-6 block hover:text-gold focus:outline-none text-gray-500" data-target="junior">Junior High</button>
-                            <button class="academic-tab-button py-2 px-6 block hover:text-gold focus:outline-none text-gray-500" data-target="senior">Senior High</button>
-                        </div>
-                    </div>
-
-                    <!-- Tab Content -->
-                    <div id="academic-tab-content" class="text-lg leading-relaxed">
-                        <div id="primary" class="academic-tab-pane">
-                            <h3 class="text-3xl font-serif text-navy mb-4">Primary School Curriculum</h3>
-                            <p>Our Primary School curriculum fosters a love of learning through a blend of the Nigerian and British curricula. We focus on foundational skills in literacy, numeracy, and science, while encouraging creativity through arts, music, and play-based learning.</p>
-                        </div>
-                        <div id="junior" class="academic-tab-pane hidden">
-                            <h3 class="text-3xl font-serif text-navy mb-4">Junior High School Curriculum</h3>
-                            <p>In Junior High, students transition to a more specialized subject-based curriculum. We emphasize critical thinking, problem-solving, and collaboration, preparing students for the challenges of senior secondary education and their BECE examinations.</p>
-                        </div>
-                        <div id="senior" class="academic-tab-pane hidden">
-                            <h3 class="text-3xl font-serif text-navy mb-4">Senior High School Curriculum</h3>
-                            <p>Our Senior High program offers specialized pathways in Science, Arts, and Business. We provide comprehensive preparation for WAEC, NECO, and international examinations like IGCSE and SAT, ensuring our graduates are competitive globally.</p>
-                        </div>
-                    </div>
+        <!-- CURRICULUM OVERVIEW -->
+        <section class="section-padding container">
+            <div class="welcome-grid">
+                <div class="reveal-up">
+                    <h4 class="gold-text">THE AIA PEDAGOGY</h4>
+                    <h2 class="section-title">Learning Beyond <br>The Textbook.</h2>
+                    <p class="lead-text">
+                        Our academic structure is built on the philosophy of <strong>Active Learning</strong>. We move beyond rote memorization to foster critical thinking, problem-solving, and digital literacy.
+                    </p>
+                    <ul class="academic-list">
+                        <li><strong>STEAM Integration:</strong> Science, Technology, Engineering, Arts, and Math are interwoven into daily lessons.</li>
+                        <li><strong>Dual Curriculum:</strong> We prepare students for WAEC/NECO while integrating key aspects of the Cambridge IGCSE.</li>
+                        <li><strong>Continuous Assessment:</strong> 40% of grades are derived from projects, presentations, and tests; 60% from terminal exams.</li>
+                    </ul>
                 </div>
-
-                <!-- Beyond the Classroom -->
-                <div class="mt-20">
-                    <h2 class="text-4xl font-serif text-navy text-center mb-12">Beyond the Classroom</h2>
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden">
-                            <img src="https://placehold.co/600x400/001F3F/FFFFFF?text=Debate+Club" class="w-full h-48 object-cover">
-                            <div class="p-6">
-                                <h3 class="text-2xl font-serif text-navy">Debate & Public Speaking</h3>
-                            </div>
+                <div class="reveal-up delay-100">
+                    <div class="stat-card-grid" style="grid-template-columns: 1fr;">
+                        <div class="stat-card" style="text-align: left; padding: 3rem;">
+                            <h3 style="color: var(--primary);">1:15</h3>
+                            <p style="margin-bottom: 1rem;">Teacher-Student Ratio</p>
+                            <p style="font-size: 0.9rem; color: #666;">Ensuring personalized attention for every learner.</p>
                         </div>
-                        <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden">
-                            <img src="https://placehold.co/600x400/D4AF37/FFFFFF?text=Athletics" class="w-full h-48 object-cover">
-                            <div class="p-6">
-                                <h3 class="text-2xl font-serif text-navy">Sports & Athletics</h3>
-                            </div>
-                        </div>
-                        <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden">
-                            <img src="https://placehold.co/600x400/001F3F/FFFFFF?text=Visual+Arts" class="w-full h-48 object-cover">
-                            <div class="p-6">
-                                <h3 class="text-2xl font-serif text-navy">Arts & Culture</h3>
-                            </div>
+                        <div class="stat-card" style="text-align: left; padding: 3rem; background: var(--primary); color: white;">
+                            <h3 style="color: var(--accent);">100%</h3>
+                            <p style="margin-bottom: 1rem; color: white;">CBT Compliance</p>
+                            <p style="font-size: 0.9rem; color: #aaa;">All senior exams utilize our state-of-the-art Computer Based Test center.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-    </main>
 
-    <!-- ===== FOOTER ===== -->
-    <footer class="bg-navy text-white">
-        <div class="container mx-auto px-4 py-12">
-            <div class="grid md:grid-cols-4 gap-8 text-center md:text-left">
-                <div>
-                    <h4 class="text-xl font-serif mb-4">Abuja Int'l Academy</h4>
-                    <p class="text-gray-400">Building Future Leaders</p>
+        <!-- SENIOR SCHOOL DEPARTMENTS (CAROUSEL) -->
+        <section class="dept-carousel-section">
+            <div class="container">
+                <div class="section-header center reveal-up">
+                    <h2 class="section-title white-text">Senior School Pathways</h2>
+                    <div class="separator"></div>
+                    <p class="white-text">Specialized departments tailored for career excellence.</p>
                 </div>
-                <div>
-                    <h5 class="font-bold mb-4">Quick Links</h5>
-                    <nav class="flex flex-col space-y-2">
-                        <a href="about.html" class="text-gray-300 hover:text-gold">About Us</a>
-                        <a href="admissions.html" class="text-gray-300 hover:text-gold">Admissions</a>
-                        <a href="contact.html" class="text-gray-300 hover:text-gold">Contact</a>
-                    </nav>
+
+                <!-- CAROUSEL WRAPPER -->
+                <div class="carousel-wrapper reveal-up delay-200">
+                    <button class="carousel-btn prev-btn" id="prevDept">&#10094;</button>
+                    
+                    <div class="dept-carousel-track" id="deptTrack">
+                        
+                        <!-- SLIDE 1: SCIENCE -->
+                        <div class="dept-slide active">
+                            <div class="dept-content">
+                                <div class="dept-text">
+                                    <h3 class="gold-text">Science & Technology</h3>
+                                    <p>For the innovators and future engineers. This department focuses on analytical reasoning and empirical evidence.</p>
+                                    <ul class="dept-subjects">
+                                        <li>Physics & Chemistry</li>
+                                        <li>Further Mathematics</li>
+                                        <li>Technical Drawing</li>
+                                        <li>Data Processing</li>
+                                    </ul>
+                                </div>
+                                <div class="dept-image">
+                                    <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=2070&auto=format&fit=crop" alt="Science Lab">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SLIDE 2: ARTS -->
+                        <div class="dept-slide">
+                            <div class="dept-content">
+                                <div class="dept-text">
+                                    <h3 class="gold-text">Arts & Humanities</h3>
+                                    <p>Cultivating articulate communicators, lawyers, and diplomats. We emphasize language mastery and historical context.</p>
+                                    <ul class="dept-subjects">
+                                        <li>Literature in English</li>
+                                        <li>Government & History</li>
+                                        <li>French / Arabic</li>
+                                        <li>Visual Arts</li>
+                                    </ul>
+                                </div>
+                                <div class="dept-image">
+                                    <img src="https://images.unsplash.com/photo-1456735190827-d1261f794971?q=80&w=2073&auto=format&fit=crop" alt="Arts Student">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SLIDE 3: COMMERCIAL -->
+                        <div class="dept-slide">
+                            <div class="dept-content">
+                                <div class="dept-text">
+                                    <h3 class="gold-text">Commercial & Business</h3>
+                                    <p>Shaping the next generation of CEOs and economists. Focus is placed on financial literacy and corporate management.</p>
+                                    <ul class="dept-subjects">
+                                        <li>Financial Accounting</li>
+                                        <li>Commerce</li>
+                                        <li>Economics</li>
+                                        <li>Office Practice</li>
+                                    </ul>
+                                </div>
+                                <div class="dept-image">
+                                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=2026&auto=format&fit=crop" alt="Business Class">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <button class="carousel-btn next-btn" id="nextDept">&#10095;</button>
                 </div>
-                <div>
-                    <h5 class="font-bold mb-4">Contact Us</h5>
-                    <p class="text-gray-300">info@aia.edu.ng</p>
-                    <p class="text-gray-300">+234 801 234 5678</p>
+                
+                <!-- Dots -->
+                <div class="carousel-dots">
+                    <span class="dot active" data-slide="0"></span>
+                    <span class="dot" data-slide="1"></span>
+                    <span class="dot" data-slide="2"></span>
                 </div>
-                <div>
-                    <h5 class="font-bold mb-4">Follow Us</h5>
-                    <div class="flex justify-center md:justify-start space-x-4 text-2xl">
-                        <a href="#" class="hover:text-gold"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="hover:text-gold"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="hover:text-gold"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="hover:text-gold"><i class="fab fa-linkedin-in"></i></a>
+
+            </div>
+        </section>
+
+        <!-- ENTRY REQUIREMENTS -->
+        <section class="section-padding container">
+            <div class="section-header center reveal-up">
+                <h2 class="section-title">Entry Requirements</h2>
+                <div class="separator"></div>
+            </div>
+
+            <div class="req-grid">
+                <!-- Junior School -->
+                <div class="req-card reveal-up">
+                    <div class="req-header">
+                        <h3>Junior Secondary (JSS1)</h3>
+                    </div>
+                    <div class="req-body">
+                        <ul>
+                            <li>Minimum age of 10 years by September.</li>
+                            <li>Common Entrance Examination Score (Maths, English, General Paper).</li>
+                            <li>Previous academic report (Year 5/6).</li>
+                            <li>Successful Oral Interview (Student & Parents).</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Senior School -->
+                <div class="req-card reveal-up delay-100">
+                    <div class="req-header" style="background: var(--accent); color: var(--primary);">
+                        <h3>Senior Secondary (SS1)</h3>
+                    </div>
+                    <div class="req-body">
+                        <ul>
+                            <li>Completion of JSS3 (BECE/Junior WAEC results).</li>
+                            <li>Minimum of 6 Credits including Math & English.</li>
+                            <li>Departmental placement test (Science/Arts/Commercial).</li>
+                            <li>Character reference letter from previous school.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Transfer -->
+                <div class="req-card reveal-up delay-200">
+                    <div class="req-header">
+                        <h3>Transfer Students</h3>
+                    </div>
+                    <div class="req-body">
+                        <ul>
+                            <li>Transcripts from the last 2 academic sessions.</li>
+                            <li>Transfer Certificate.</li>
+                            <li>AIA Entrance Examination.</li>
+                            <li><strong>Note:</strong> We do not accept transfer students into terminal classes (JSS3 & SS3).</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <div class="text-center text-gray-500 border-t border-gray-700 mt-8 pt-6">
-                <p>&copy; <span id="current-year"></span> Abuja International Academy. All Rights Reserved.</p>
+        </section>
+
+        <!-- FAQS & BROCHURE -->
+        <section class="section-padding" style="background: var(--off-white);">
+            <div class="container">
+                <div class="welcome-grid">
+                    
+                    <!-- FAQ Accordion -->
+                    <div class="faq-wrapper reveal-up">
+                        <h2 class="section-title">Frequently Asked Questions</h2>
+                        
+                        <div class="faq-item">
+                            <button class="faq-question">Does AIA offer boarding facilities? <span class="icon">+</span></button>
+                            <div class="faq-answer">
+                                <p>Yes, we offer standard boarding facilities for boys and girls at our Mararaba Campus, providing a secure and conducive environment for learning.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">What extracurriculars are compulsory? <span class="icon">+</span></button>
+                            <div class="faq-answer">
+                                <p>Every student must belong to one professional club (e.g., JETS, Press Club) and one sports team. Leadership training is also mandatory for SS2 students.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">How does the school handle discipline? <span class="icon">+</span></button>
+                            <div class="faq-answer">
+                                <p>We employ a "Redemptive Discipline" approach. While we have zero tolerance for bullying or dishonesty, we focus on counseling and character reform rather than purely punitive measures.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Brochure CTA -->
+                    <div class="brochure-cta reveal-up delay-100">
+                        <div class="cta-box">
+                            <h3 class="white-text">Download Academic Handbook</h3>
+                            <p class="white-text" style="opacity: 0.8; margin-bottom: 2rem;">Get the complete guide to our grading system, code of conduct, and university pathways.</p>
+                            <a href="#" class="btn-main btn-white" download>
+                                <span style="margin-right: 10px;">⬇</span> Download PDF (4MB)
+                            </a>
+                            <div style="margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1rem;">
+                                <small class="white-text">Need to speak to a counselor?</small><br>
+                                <a href="mailto:academics@aia.edu.ng" style="color: var(--accent); font-weight: 600;">academics@aia.edu.ng</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-        </div>
-    </footer>
-    
-    <!-- Custom JavaScript -->
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-grid">
+                    <div>
+                        <h4>Abuja Int. Academy</h4>
+                        <p>Building Future Leaders since 2010.</p>
+                    </div>
+                    <div>
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="academics.html">Academics</a></li>
+                            <li><a href="index.html#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Contact</h4>
+                        <ul>
+                            <li>City College Campus</li>
+                            <li>Mararaba Campus</li>
+                            <li>info@aia.edu.ng</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Abuja International Academy. All Rights Reserved.</p>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
     <script src="script.js"></script>
 </body>
 </html>

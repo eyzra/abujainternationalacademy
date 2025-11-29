@@ -1,189 +1,192 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
     
-    // --- ACTIVE NAV LINK HIGHLIGHTING ---
-    const currentPage = window.location.pathname.split("/").pop() || "index.html";
-    const navLinks = document.querySelectorAll('nav a');
+    // 1. Crown Toggle Logic (Neon & Sidebar)
+    const crown = document.getElementById('crown-toggle');
+    const sideNav = document.getElementById('side-nav');
+    const navLinks = document.querySelectorAll('.nav-link-item');
 
-    navLinks.forEach(link => {
-        const linkPage = link.getAttribute('href');
-        if (linkPage === currentPage) {
-            link.classList.add('active');
-        }
-    });
-
-    // --- STICKY HEADER ---
-    const header = document.getElementById('main-header');
-    // The home page doesn't start with a scrolled header
-    const isHomePage = currentPage === 'index.html';
-    
-    if (!isHomePage) {
-        header.classList.add('header-scrolled');
-    }
-
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) {
-            header.classList.add('header-scrolled');
-        } else if (isHomePage) {
-            header.classList.remove('header-scrolled');
-        }
-    });
-
-    // --- MOBILE MENU ---
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const closeMobileMenu = document.getElementById('close-mobile-menu');
-
-    if(mobileMenuButton) {
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.remove('translate-x-full');
-        });
-    }
-    if(closeMobileMenu) {
-        closeMobileMenu.addEventListener('click', () => {
-            mobileMenu.classList.add('translate-x-full');
-        });
-    }
-    // Close mobile menu on clicking a link
-    mobileMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.classList.add('translate-x-full');
-        });
-    });
-
-
-    // --- VIDEO MODAL (Only on Home Page) ---
-    const playVideoButton = document.getElementById('play-video-button');
-    if (playVideoButton) {
-        const videoModal = document.getElementById('video-modal');
-        const closeVideoModal = document.getElementById('close-video-modal');
-        const videoIframe = document.getElementById('video-iframe');
-        const originalVideoSrc = videoIframe.src;
-
-        playVideoButton.addEventListener('click', () => {
-            videoModal.classList.remove('hidden');
-            videoIframe.src = originalVideoSrc + "?autoplay=1"; // Autoplay
+    if (crown && sideNav) {
+        crown.addEventListener('click', () => {
+            // Toggle active/neon state on button
+            crown.classList.toggle('neon-active');
+            // Toggle sidebar visibility
+            sideNav.classList.toggle('open');
         });
 
-        closeVideoModal.addEventListener('click', () => {
-            videoModal.classList.add('hidden');
-            videoIframe.src = originalVideoSrc; // Stop video
+        // Close sidebar when a link is clicked
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                crown.classList.remove('neon-active');
+                sideNav.classList.remove('open');
+            });
+        });
+
+        // Close sidebar when clicking outside (on the main content)
+        document.addEventListener('click', (e) => {
+            if (sideNav.classList.contains('open') && 
+                !sideNav.contains(e.target) && 
+                !crown.contains(e.target)) {
+                
+                crown.classList.remove('neon-active');
+                sideNav.classList.remove('open');
+            }
         });
     }
 
-    // --- ON-SCROLL FADE-IN ANIMATIONS ---
+    // 2. Hero Caption Rotator
+    const captions = document.querySelectorAll('.hero-caption');
+    if (captions.length > 0) {
+        let currentCaption = 0;
+        
+        // Function to switch active caption
+        const rotateCaptions = () => {
+            // Remove active from current
+            captions[currentCaption].classList.remove('active');
+            
+            // Increment
+            currentCaption = (currentCaption + 1) % captions.length;
+            
+            // Add active to next
+            captions[currentCaption].classList.add('active');
+        };
+
+        // Rotate every 4 seconds
+        setInterval(rotateCaptions, 4000);
+    }
+
+    // 3. Intersection Observer for Scroll Reveals
+    const observerOptions = {
+        threshold: 0.15,
+        rootMargin: "0px 0px -50px 0px"
+    };
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
+                entry.target.classList.add('active');
+                
+                // If it's a number counter, start counting
+                if(entry.target.querySelector('.stat-number')) {
+                    startCounters(entry.target);
+                }
+                
+                observer.unobserve(entry.target); // Only animate once
             }
         });
-    }, { threshold: 0.1 });
+    }, observerOptions);
 
-    document.querySelectorAll('.fade-in-section').forEach(section => {
-        observer.observe(section);
+    document.querySelectorAll('.reveal-up').forEach(el => {
+        observer.observe(el);
     });
 
-    // --- ACADEMICS PAGE TABS ---
-    const tabButtons = document.querySelectorAll('.academic-tab-button');
-    const tabPanes = document.querySelectorAll('.academic-tab-pane');
+    // 4. Number Counter Logic
+    function startCounters(section) {
+        const counters = section.querySelectorAll('.stat-number');
+        counters.forEach(counter => {
+            const target = +counter.getAttribute('data-target');
+            const duration = 2000;
+            const increment = target / (duration / 16); 
+            
+            let current = 0;
+            
+            const updateCounter = () => {
+                current += increment;
+                if (current < target) {
+                    counter.innerText = Math.ceil(current) + (target > 99 ? '+' : '');
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    counter.innerText = target + (target > 99 ? '+' : '%');
+                    if(target === 15) counter.innerText = '15+';
+                    if(target === 100) counter.innerText = '100%';
+                }
+            };
+            updateCounter();
+        });
+    }
 
-    if (tabButtons.length > 0) {
-        tabButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                tabButtons.forEach(btn => {
-                    btn.classList.remove('active-tab', 'text-gold', 'border-gold');
-                    btn.classList.add('text-gray-500');
-                });
-                tabPanes.forEach(pane => pane.classList.add('hidden'));
+    // 5. Magnetic Button Effect (Refined for Classic feel)
+    const buttons = document.querySelectorAll('.btn-main');
+    buttons.forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const moveX = (x - rect.width / 2) / 15; // Reduced movement for subtler effect
+            const moveY = (y - rect.height / 2) / 15;
+            
+            btn.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        });
 
-                button.classList.add('active-tab', 'text-gold', 'border-gold');
-                button.classList.remove('text-gray-500');
-                document.getElementById(button.dataset.target).classList.remove('hidden');
+        btn.addEventListener('mouseleave', () => {
+            btn.style.transform = 'translate(0, 0)';
+        });
+    });
+
+    // 6. Department Carousel Logic
+    const deptTrack = document.getElementById('deptTrack');
+    if (deptTrack) {
+        const slides = Array.from(deptTrack.children);
+        const nextBtn = document.getElementById('nextDept');
+        const prevBtn = document.getElementById('prevDept');
+        const dots = document.querySelectorAll('.dot');
+        let currentSlideIndex = 0;
+
+        const updateSlide = (index) => {
+            // Remove active class from all
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            // Add active to current
+            slides[index].classList.add('active');
+            if(dots[index]) dots[index].classList.add('active');
+            
+            currentSlideIndex = index;
+        };
+
+        nextBtn.addEventListener('click', () => {
+            const nextIndex = (currentSlideIndex + 1) % slides.length;
+            updateSlide(nextIndex);
+        });
+
+        prevBtn.addEventListener('click', () => {
+            const prevIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+            updateSlide(prevIndex);
+        });
+
+        // Dot navigation
+        dots.forEach(dot => {
+            dot.addEventListener('click', (e) => {
+                const index = parseInt(e.target.dataset.slide);
+                updateSlide(index);
             });
         });
     }
 
-    // --- FAQ ACCORDION (Admissions Page) ---
-    const faqItems = document.querySelectorAll('.faq-item');
-    if (faqItems.length > 0) {
-        faqItems.forEach(item => {
-            const question = item.querySelector('.faq-question');
-            const answer = item.querySelector('.faq-answer');
-            const icon = question.querySelector('i');
+    // 7. FAQ Accordion Logic
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+            const answer = question.nextElementSibling;
+            
+            // Toggle Active Class on Question
+            question.classList.toggle('active');
 
-            question.addEventListener('click', () => {
-                const isVisible = !answer.classList.contains('hidden');
-                answer.classList.toggle('hidden');
-                icon.classList.toggle('rotate-180', !isVisible);
-            });
-        });
-    }
+            // Toggle Max-Height for smooth slide
+            if (question.classList.contains('active')) {
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+            } else {
+                answer.style.maxHeight = 0;
+            }
 
-    // --- GALLERY FILTERING & LIGHTBOX (Gallery Page) ---
-    const galleryGrid = document.getElementById('gallery-grid');
-    if (galleryGrid) {
-        const filterBtns = document.querySelectorAll('.gallery-filter-btn');
-        const galleryItems = document.querySelectorAll('.gallery-item');
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
-        const lightboxClose = document.getElementById('lightbox-close');
-        const lightboxNext = document.getElementById('lightbox-next');
-        const lightboxPrev = document.getElementById('lightbox-prev');
-        let currentImageIndex;
-        let visibleImages = [];
-
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterBtns.forEach(b => {
-                    b.classList.remove('active', 'bg-navy', 'text-white');
-                    b.classList.add('bg-white', 'text-navy');
-                });
-                btn.classList.add('active', 'bg-navy', 'text-white');
-                btn.classList.remove('bg-white', 'text-navy');
-                
-                const filter = btn.dataset.filter;
-                
-                galleryItems.forEach(item => {
-                    if (!filter || item.dataset.category === filter) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-            });
-        });
-
-        galleryItems.forEach(item => {
-            item.addEventListener('click', (e) => {
-                visibleImages = Array.from(document.querySelectorAll('.gallery-item[style*="block"] img'));
-                const clickedImgSrc = e.target.src;
-                currentImageIndex = visibleImages.findIndex(img => img.src === clickedImgSrc);
-                
-                if (currentImageIndex !== -1) {
-                    lightboxImg.src = clickedImgSrc;
-                    lightbox.classList.remove('hidden');
+            // Optional: Close other FAQs
+            faqQuestions.forEach(otherQ => {
+                if(otherQ !== question && otherQ.classList.contains('active')) {
+                    otherQ.classList.remove('active');
+                    otherQ.nextElementSibling.style.maxHeight = 0;
                 }
             });
         });
+    });
 
-        function showImage(index) {
-            if (index >= visibleImages.length) {
-                index = 0; // Loop to the first image
-            } else if (index < 0) {
-                index = visibleImages.length - 1; // Loop to the last image
-            }
-            lightboxImg.src = visibleImages[index].src;
-            currentImageIndex = index;
-        }
-
-        lightboxClose.addEventListener('click', () => lightbox.classList.add('hidden'));
-        lightboxNext.addEventListener('click', () => showImage(currentImageIndex + 1));
-        lightboxPrev.addEventListener('click', () => showImage(currentImageIndex - 1));
-    }
-
-    // --- FOOTER CURRENT YEAR ---
-    const yearSpan = document.getElementById('current-year');
-    if(yearSpan) {
-        yearSpan.textContent = new Date().getFullYear();
-    }
 });

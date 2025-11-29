@@ -1,169 +1,214 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admissions - Abuja International Academy</title>
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Google Fonts -->
+    <title>Admissions | Abuja International Academy</title>
+    
+    <!-- Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <!-- Custom Stylesheet -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/AIA.png" type="image/x-icon">
 </head>
-<body class="bg-white">
+<body>
 
-    <!-- ===== HEADER ===== -->
-    <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 px-4 sm:px-6 lg:px-8 header-scrolled">
-        <div class="container mx-auto flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold font-serif text-navy">AIA</a>
-            
-            <!-- Desktop Navigation -->
-            <nav class="hidden lg:flex items-center space-x-8">
-                <a href="index.html" class="nav-link link-underline text-navy hover:text-gold transition-colors" data-page="home">Home</a>
-                <a href="about.html" class="nav-link link-underline text-navy hover:text-gold transition-colors" data-page="about">About Us</a>
-                <a href="academics.html" class="nav-link link-underline text-navy hover:text-gold transition-colors" data-page="academics">Academics</a>
-                <a href="admissions.html" class="nav-link link-underline text-navy hover:text-gold transition-colors" data-page="admissions">Admissions</a>
-                <a href="gallery.html" class="nav-link link-underline text-navy hover:text-gold transition-colors" data-page="gallery">Gallery</a>
-                <div class="relative group">
-                    <a href="news.html" class="nav-link link-underline text-navy hover:text-gold transition-colors flex items-center cursor-pointer">
-                        News & Events
-                        <i class="fas fa-chevron-down ml-2 text-xs transition-transform group-hover:rotate-180"></i>
-                    </a>
-                    <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 w-48 z-50 py-1">
-                        <a href="calendar.html" class="block px-4 py-2 text-navy hover:bg-gray-100 hover:text-gold">Events Calendar</a>
-                    </div>
-                </div>
-                <a href="contact.html" class="nav-link link-underline text-navy hover:text-gold transition-colors" data-page="contact">Contact</a>
-            </nav>
+    <!-- NAV TRIGGER -->
+    <div id="crown-toggle" class="crown-toggle" title="Toggle Menu">
+        <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14"></path>
+        </svg>
+    </div>
 
-            <div class="flex items-center">
-                <a href="contact.html" class="hidden lg:inline-block bg-gold text-white font-bold py-2 px-6 rounded-lg shadow-md hover:bg-opacity-90 transition-all transform hover:scale-105">Enquire Now</a>
-                
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-button" class="lg:hidden text-navy text-2xl ml-4">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
+    <!-- SIDEBAR NAVIGATION -->
+    <aside id="side-nav" class="side-nav">
+        <div class="nav-content-vertical">
+            <div class="logo">AIA.</div>
+            <ul class="nav-links-vertical">
+                <li><a href="index.html" class="nav-link-item">Home</a></li>
+                <li><a href="about.html" class="nav-link-item">About Us</a></li>
+                <li><a href="academics.html" class="nav-link-item">Academics</a></li>
+                <li><a href="admissions.html" class="nav-link-item">Admissions</a></li>
+                <li><a href="news.html" class="nav-link-item">News</a></li>
+            </ul>
+            <a href="admissions.html" class="btn-main btn-white" style="margin-top: 2rem;">Enroll Now</a>
+        </div>
+    </aside>
+
+    <!-- ADMISSIONS HERO -->
+    <header class="admissions-hero">
+        <div class="hero-overlay"></div>
+        <div class="admissions-hero-content reveal-up">
+            <h1 class="classic-title white-text">Begin Your Journey</h1>
+            <div class="separator" style="background: var(--accent);"></div>
+            <p class="lead-text white-text">Join a legacy of excellence. We are looking for students who dare to dream and are ready to lead.</p>
         </div>
     </header>
 
-    <!-- ===== MOBILE MENU ===== -->
-    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-64 bg-navy text-white p-8 transform translate-x-full transition-transform duration-300 ease-in-out z-50">
-        <button id="close-mobile-menu" class="absolute top-6 right-6 text-2xl">&times;</button>
-        <nav class="flex flex-col space-y-6 mt-12">
-            <a href="index.html" class="nav-link text-lg" data-page="home">Home</a>
-            <a href="about.html" class="nav-link text-lg" data-page="about">About Us</a>
-            <a href="academics.html" class="nav-link text-lg" data-page="academics">Academics</a>
-            <a href="admissions.html" class="nav-link text-lg" data-page="admissions">Admissions</a>
-            <a href="gallery.html" class="nav-link text-lg" data-page="gallery">Gallery</a>
-            <a href="contact.html" class="nav-link text-lg" data-page="contact">Contact</a>
-        </nav>
-    </div>
+    <main class="page-content">
 
-    <!-- ===== MAIN CONTENT CONTAINER ===== -->
-    <main id="main-content" class="pt-24 lg:pt-32">
-        <section class="py-16 bg-white">
-            <div class="container mx-auto px-4">
-                <h1 class="text-4xl lg:text-6xl font-serif text-navy text-center mb-12">Admissions</h1>
-                <div class="max-w-4xl mx-auto">
-                    <h2 class="text-3xl font-serif text-navy mb-6">Admissions Process</h2>
-                    <ol class="list-decimal list-inside space-y-6 text-lg">
-                        <li><strong>Enquiry & Campus Tour:</strong> Contact our admissions office to ask questions and schedule a tour of our facilities.</li>
-                        <li><strong>Application Form:</strong> Purchase and complete the application form, available online or at our campuses.</li>
-                        <li><strong>Entrance Examination:</strong> Prospective students will sit for a computer-based test (CBT) to assess their academic readiness.</li>
-                        <li><strong>Interview:</strong> A successful examination is followed by an informal interview with the student and parents.</li>
-                        <li><strong>Offer of Admission:</strong> Successful candidates will receive an offer of admission, along with details for acceptance and fee payment.</li>
-                    </ol>
+        <!-- WHY CHOOSE AIA (Value Proposition) -->
+        <section class="section-padding container">
+            <div class="welcome-grid">
+                <div class="reveal-up">
+                    <h4 class="gold-text">THE AIA ADVANTAGE</h4>
+                    <h2 class="section-title">Why Choose <br>Abuja Int. Academy?</h2>
+                    <p class="lead-text">
+                        Choosing a school is choosing a future. At AIA, we offer a unique blend of academic rigor and moral grounding that sets your child apart in an increasingly competitive world.
+                    </p>
+                    <ul class="academic-list">
+                        <li><strong>Holistic Development:</strong> We prioritize the "Total Child"—intellect, character, and physical well-being.</li>
+                        <li><strong>Global Readiness:</strong> Our dual curriculum ensures students can thrive in Nigerian Universities or Ivy League institutions abroad.</li>
+                        <li><strong>Safe & Secure:</strong> Our campuses are equipped with modern security systems and a zero-tolerance policy for bullying.</li>
+                    </ul>
+                </div>
+                <div class="welcome-img-wrapper reveal-up delay-100" style="box-shadow: 20px 20px 0 var(--primary);">
+                    <img src="img/std2.jpg" alt="Happy Student" class="welcome-img portrait-rect">
+                </div>
+            </div>
+        </section>
 
-                    <div class="mt-12 grid md:grid-cols-2 gap-8">
-                        <div class="bg-gray-50 p-6 rounded-lg">
-                            <h3 class="text-2xl font-serif text-navy mb-3">Tuition & Fees</h3>
-                            <p>Our fee structure is competitive and reflects the high standard of education we provide. For a detailed breakdown, please download our fees schedule.</p>
-                            <a href="#" class="text-gold font-bold mt-2 inline-block">Download Fees Schedule <i class="fas fa-download"></i></a>
-                        </div>
-                        <div class="bg-gray-50 p-6 rounded-lg">
-                            <h3 class="text-2xl font-serif text-navy mb-3">Scholarships</h3>
-                            <p>We offer a limited number of academic scholarships to exceptional students. These are awarded based on merit following our entrance examination.</p>
-                            <a href="#" class="text-gold font-bold mt-2 inline-block">Learn More</a>
-                        </div>
+        <!-- KEY SELLING POINTS (Icons) -->
+        <section class="section-padding" style="background: var(--off-white);">
+            <div class="container">
+                <div class="section-header center reveal-up">
+                    <h2 class="section-title">Key Selling Points</h2>
+                    <p>What makes us the preferred choice for parents in Abuja.</p>
+                </div>
+
+                <div class="values-grid">
+                    <div class="value-card reveal-up">
+                        <div class="icon-box">🏆</div>
+                        <h3>Scholarship Opportunities</h3>
+                        <p>We reward brilliance. Up to 50% tuition scholarships available for top-performing entrance candidates.</p>
                     </div>
-
-                    <!-- FAQ -->
-                    <div class="mt-16">
-                        <h2 class="text-3xl font-serif text-navy mb-6">Frequently Asked Questions</h2>
-                        <div class="space-y-4">
-                            <div class="faq-item border-b pb-4">
-                                <button class="faq-question w-full text-left text-xl font-semibold flex justify-between items-center">
-                                    <span>What is the age requirement for entry?</span>
-                                    <i class="fas fa-chevron-down transform transition-transform"></i>
-                                </button>
-                                <div class="faq-answer hidden mt-2 text-gray-700">
-                                    <p>For entry into Year 7 (JSS1), students should be 10 years old by September of the year of admission.</p>
-                                </div>
-                            </div>
-                            <div class="faq-item border-b pb-4">
-                                <button class="faq-question w-full text-left text-xl font-semibold flex justify-between items-center">
-                                    <span>Do you provide transportation?</span>
-                                    <i class="fas fa-chevron-down transform transition-transform"></i>
-                                </button>
-                                <div class="faq-answer hidden mt-2 text-gray-700">
-                                    <p>Yes, we offer a safe and reliable bus service covering numerous routes across Abuja and its environs. Please contact the admissions office for details on routes and fees.</p>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="value-card reveal-up delay-100">
+                        <div class="icon-box">💻</div>
+                        <h3>Tech-Driven Learning</h3>
+                        <p>From smart boards to our dedicated CBT center, technology is embedded in our DNA.</p>
+                    </div>
+                    <div class="value-card reveal-up delay-200">
+                        <div class="icon-box">✝</div>
+                        <h3>Moral Excellence</h3>
+                        <p>We don't just graduate scholars; we graduate citizens with integrity and the fear of God.</p>
+                    </div>
+                    <div class="value-card reveal-up delay-300">
+                        <div class="icon-box">⚽</div>
+                        <h3>World-Class Facilities</h3>
+                        <p>Standard sports complex, well-equipped science labs, and a modern library.</p>
                     </div>
                 </div>
             </div>
         </section>
-    </main>
 
-    <!-- ===== FOOTER ===== -->
-    <footer class="bg-navy text-white">
-        <div class="container mx-auto px-4 py-12">
-            <div class="grid md:grid-cols-4 gap-8 text-center md:text-left">
-                <div>
-                    <h4 class="text-xl font-serif mb-4">Abuja Int'l Academy</h4>
-                    <p class="text-gray-400">Building Future Leaders</p>
+        <!-- ADMISSION PROCESS (Steps) -->
+        <section class="section-padding container">
+            <div class="section-header center reveal-up">
+                <h2 class="section-title">The Admission Process</h2>
+                <div class="separator"></div>
+                <p>Four simple steps to becoming an AIA student.</p>
+            </div>
+
+            <div class="process-grid">
+                <!-- Step 1 -->
+                <div class="process-card reveal-up">
+                    <div class="step-number">01</div>
+                    <h3>Purchase Form</h3>
+                    <p>Obtain an application form online or from the administrative office at either campus for ₦10,000.</p>
                 </div>
-                <div>
-                    <h5 class="font-bold mb-4">Quick Links</h5>
-                    <nav class="flex flex-col space-y-2">
-                        <a href="about.html" class="text-gray-300 hover:text-gold">About Us</a>
-                        <a href="admissions.html" class="text-gray-300 hover:text-gold">Admissions</a>
-                        <a href="contact.html" class="text-gray-300 hover:text-gold">Contact</a>
-                    </nav>
+                <!-- Step 2 -->
+                <div class="process-card reveal-up delay-100">
+                    <div class="step-number">02</div>
+                    <h3>Entrance Exam</h3>
+                    <p>Candidate sits for a CBT assessment covering Mathematics, English, and General Knowledge.</p>
                 </div>
-                <div>
-                    <h5 class="font-bold mb-4">Contact Us</h5>
-                    <p class="text-gray-300">info@aia.edu.ng</p>
-                    <p class="text-gray-300">+234 801 234 5678</p>
+                <!-- Step 3 -->
+                <div class="process-card reveal-up delay-200">
+                    <div class="step-number">03</div>
+                    <h3>Oral Interview</h3>
+                    <p>Successful candidates and parents are invited for an interactive session with the management.</p>
                 </div>
-                <div>
-                    <h5 class="font-bold mb-4">Follow Us</h5>
-                    <div class="flex justify-center md:justify-start space-x-4 text-2xl">
-                        <a href="#" class="hover:text-gold"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="hover:text-gold"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="hover:text-gold"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="hover:text-gold"><i class="fab fa-linkedin-in"></i></a>
+                <!-- Step 4 -->
+                <div class="process-card reveal-up delay-300">
+                    <div class="step-number">04</div>
+                    <h3>Admission</h3>
+                    <p>Receive your provisional admission letter and welcome pack. Welcome to the family!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- REQUIREMENTS CHECKLIST -->
+        <section class="section-padding" style="background: var(--primary); color: white;">
+            <div class="container">
+                <div class="section-header center reveal-up">
+                    <h2 class="section-title white-text">Admission Requirements</h2>
+                    <p class="white-text" style="opacity: 0.8;">Please ensure you have the following documents ready.</p>
+                </div>
+
+                <div class="req-grid">
+                    <div class="req-card reveal-up" style="border: none;">
+                        <div class="req-header" style="background: var(--accent); color: var(--primary);">
+                            <h3>Documents Required</h3>
+                        </div>
+                        <div class="req-body">
+                            <ul style="color: #333;">
+                                <li><strong>2 Recent Passport Photographs</strong> (White background).</li>
+                                <li><strong>Birth Certificate</strong> (Original & Photocopy).</li>
+                                <li><strong>Last Academic Report</strong> from previous school.</li>
+                                <li><strong>Medical Report</strong> / Immunization Record.</li>
+                                <li><strong>Transfer Certificate</strong> (For transfer students).</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="brochure-cta reveal-up delay-100" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);">
+                        <h3 class="white-text">Ready to Apply?</h3>
+                        <p class="white-text" style="margin-bottom: 2rem;">You can start your application online right now.</p>
+                        <a href="#" class="btn-main btn-white">Start Application</a>
+                        <br><br>
+                        <a href="#" style="color: var(--accent); text-decoration: underline;">Download Offline Form (PDF)</a>
                     </div>
                 </div>
             </div>
-            <div class="text-center text-gray-500 border-t border-gray-700 mt-8 pt-6">
-                <p>&copy; <span id="current-year"></span> Abuja International Academy. All Rights Reserved.</p>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-grid">
+                    <div>
+                        <h4>Abuja Int. Academy</h4>
+                        <p>Building Future Leaders since 2010.</p>
+                    </div>
+                    <div>
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="academics.html">Academics</a></li>
+                            <li><a href="admissions.html">Admissions</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Contact</h4>
+                        <ul>
+                            <li>City College Campus</li>
+                            <li>Mararaba Campus</li>
+                            <li>info@aia.edu.ng</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Abuja International Academy. All Rights Reserved.</p>
+                </div>
             </div>
-        </div>
-    </footer>
-    
-    <!-- Custom JavaScript -->
+        </footer>
+
+    </main>
+
     <script src="script.js"></script>
 </body>
 </html>

@@ -1,146 +1,188 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News & Events - Abuja International Academy</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>News & Gallery | Abuja International Academy</title>
+    
+    <!-- Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-white">
+<body>
 
-    <!-- ===== HEADER ===== -->
-    <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 px-4 sm:px-6 lg:px-8 header-scrolled">
-        <div class="container mx-auto flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold font-serif text-navy">AIA</a>
-            <nav class="hidden lg:flex items-center space-x-8">
-                <a href="index.html" class="nav-link link-underline text-navy hover:text-gold transition-colors">Home</a>
-                <a href="about.html" class="nav-link link-underline text-navy hover:text-gold transition-colors">About Us</a>
-                <a href="academics.html" class="nav-link link-underline text-navy hover:text-gold transition-colors">Academics</a>
-                <a href="admissions.html" class="nav-link link-underline text-navy hover:text-gold transition-colors">Admissions</a>
-                <a href="gallery.html" class="nav-link link-underline text-navy hover:text-gold transition-colors">Gallery</a>
-                <div class="relative group">
-                    <a href="news.html" class="nav-link link-underline text-navy hover:text-gold transition-colors flex items-center cursor-pointer">
-                        News & Events
-                        <i class="fas fa-chevron-down ml-2 text-xs transition-transform group-hover:rotate-180"></i>
-                    </a>
-                    <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 w-48 z-50 py-1">
-                        <a href="calendar.html" class="block px-4 py-2 text-navy hover:bg-gray-100 hover:text-gold">Events Calendar</a>
-                    </div>
-                </div>
-                <a href="contact.html" class="nav-link link-underline text-navy hover:text-gold transition-colors">Contact</a>
-            </nav>
-            <div class="flex items-center">
-                <a href="contact.html" class="hidden lg:inline-block bg-gold text-white font-bold py-2 px-6 rounded-lg shadow-md hover:bg-opacity-90 transition-all transform hover:scale-105">Enquire Now</a>
-                <button id="mobile-menu-button" class="lg:hidden text-navy text-2xl ml-4">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
+    <!-- NAV TRIGGER -->
+    <div id="crown-toggle" class="crown-toggle" title="Toggle Menu">
+        <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14"></path>
+        </svg>
+    </div>
+
+    <!-- SIDEBAR NAVIGATION -->
+    <aside id="side-nav" class="side-nav">
+        <div class="nav-content-vertical">
+            <div class="logo">AIA.</div>
+            <ul class="nav-links-vertical">
+                <li><a href="index.html" class="nav-link-item">Home</a></li>
+                <li><a href="about.html" class="nav-link-item">About Us</a></li>
+                <li><a href="academics.html" class="nav-link-item">Academics</a></li>
+                <li><a href="admissions.html" class="nav-link-item">Admissions</a></li>
+                <li><a href="news.html" class="nav-link-item">News</a></li>
+            </ul>
+            <a href="admissions.html" class="btn-main btn-white" style="margin-top: 2rem;">Enroll Now</a>
+        </div>
+    </aside>
+
+    <!-- NEWS HERO -->
+    <header class="news-hero">
+        <div class="container reveal-up">
+            <h1 class="classic-title">The Leader's Ledger</h1>
+            <div class="separator"></div>
+            <p class="lead-text">News, Events, and Memories from Abuja International Academy.</p>
         </div>
     </header>
 
-    <!-- ===== MOBILE MENU ===== -->
-    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-64 bg-navy text-white p-8 transform translate-x-full transition-transform duration-300 ease-in-out z-50">
-        <button id="close-mobile-menu" class="absolute top-6 right-6 text-2xl">&times;</button>
-        <nav class="flex flex-col space-y-6 mt-12">
-            <a href="index.html" class="nav-link text-lg">Home</a>
-            <a href="about.html" class="nav-link text-lg">About Us</a>
-            <a href="academics.html" class="nav-link text-lg">Academics</a>
-            <a href="admissions.html" class="nav-link text-lg">Admissions</a>
-            <a href="gallery.html" class="nav-link text-lg">Gallery</a>
-            <div class="flex flex-col space-y-2">
-                <a href="news.html" class="nav-link text-lg">News & Events</a>
-                <a href="calendar.html" class="nav-link text-base text-gray-300 hover:text-gold pl-4">Events Calendar</a>
-            </div>
-            <a href="contact.html" class="nav-link text-lg">Contact</a>
-        </nav>
-    </div>
+    <main class="page-content">
 
-    <!-- ===== MAIN CONTENT ===== -->
-    <main class="pt-24 lg:pt-32">
-        <section class="py-16 bg-gray-50">
-            <div class="container mx-auto px-4">
-                <h1 class="text-4xl lg:text-6xl font-serif text-navy text-center mb-12">News & Events</h1>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- News Card 1 -->
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-                        <img src="https://placehold.co/600x400/001F3F/FFFFFF?text=Science+Fair" alt="Science Fair" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <p class="text-sm text-gray-500 mb-2">September 15, 2025</p>
-                            <h3 class="text-2xl font-serif text-navy mb-3">AIA Hosts Annual Science Fair</h3>
-                            <p class="text-gray-700 mb-4">Our students showcased incredible ingenuity and scientific curiosity at this year's science fair...</p>
-                            <a href="#" class="font-bold text-gold hover:underline">Read More &rarr;</a>
-                        </div>
+        <!-- LATEST NEWS -->
+        <section class="section-padding container">
+            
+            <!-- Featured Article -->
+            <div class="featured-blog reveal-up">
+                <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=2070&auto=format&fit=crop" alt="Featured News" class="featured-img">
+                <div class="featured-content">
+                    <span class="blog-meta">NOVEMBER 28, 2025 • ACADEMICS</span>
+                    <h2 style="margin-bottom: 1rem; color: var(--primary);">AIA Wins Regional Debate Championship</h2>
+                    <p style="color: #666; margin-bottom: 1.5rem;">Our senior debate team has once again proven their eloquence and critical thinking skills by securing the first position in the FCT Schools Debate Competition...</p>
+                    <a href="#" class="btn-main">Read Full Story</a>
+                </div>
+            </div>
+
+            <!-- News Grid -->
+            <h3 class="section-title center">Recent Updates</h3>
+            <div class="blog-grid">
+                <!-- Article 1 -->
+                <article class="blog-card reveal-up">
+                    <img src="https://images.unsplash.com/photo-1427504746696-ea5abd7dfe4d?q=80&w=2070&auto=format&fit=crop" alt="News 1" class="blog-image">
+                    <div class="blog-content">
+                        <span class="blog-meta">Nov 15, 2025</span>
+                        <h4 class="blog-title">Entrance Exams for 2026/27 Session Announced</h4>
+                        <a href="#" class="blog-link">Read More</a>
                     </div>
-                    <!-- News Card 2 -->
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-                        <img src="https://placehold.co/600x400/D4AF37/FFFFFF?text=Debate+Champions" alt="Debate Team" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <p class="text-sm text-gray-500 mb-2">September 10, 2025</p>
-                            <h3 class="text-2xl font-serif text-navy mb-3">Debate Team Wins National Championship</h3>
-                            <p class="text-gray-700 mb-4">Our talented debate team has brought home the trophy from the National Secondary School Debate Competition...</p>
-                            <a href="#" class="font-bold text-gold hover:underline">Read More &rarr;</a>
-                        </div>
+                </article>
+                <!-- Article 2 -->
+                <article class="blog-card reveal-up delay-100">
+                    <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?q=80&w=2071&auto=format&fit=crop" alt="News 2" class="blog-image">
+                    <div class="blog-content">
+                        <span class="blog-meta">Nov 10, 2025</span>
+                        <h4 class="blog-title">Introducing Robotics Club to Junior Secondary</h4>
+                        <a href="#" class="blog-link">Read More</a>
                     </div>
-                    <!-- News Card 3 -->
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-                        <img src="https://placehold.co/600x400/001F3F/FFFFFF?text=Community+Service" alt="Community Service" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <p class="text-sm text-gray-500 mb-2">September 5, 2025</p>
-                            <h3 class="text-2xl font-serif text-navy mb-3">Students Participate in Community Cleanup</h3>
-                            <p class="text-gray-700 mb-4">As part of our commitment to social responsibility, our students dedicated their Saturday to a local community cleanup...</p>
-                            <a href="#" class="font-bold text-gold hover:underline">Read More &rarr;</a>
-                        </div>
+                </article>
+                <!-- Article 3 -->
+                <article class="blog-card reveal-up delay-200">
+                    <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?q=80&w=2070&auto=format&fit=crop" alt="News 3" class="blog-image">
+                    <div class="blog-content">
+                        <span class="blog-meta">Oct 28, 2025</span>
+                        <h4 class="blog-title">Cultural Day Celebration Highlights</h4>
+                        <a href="#" class="blog-link">Read More</a>
+                    </div>
+                </article>
+            </div>
+
+        </section>
+
+        <!-- SCHOOL GALLERY (Segmented) -->
+        <section class="gallery-section">
+            <div class="container">
+                <div class="section-header center reveal-up">
+                    <h2 class="section-title">Our Gallery</h2>
+                    <p>Capturing moments of excellence.</p>
+                </div>
+
+                <!-- Segment 1: Graduation -->
+                <div class="gallery-segment reveal-up">
+                    <div class="segment-title">
+                        <h3>Graduation Ceremony</h3>
+                        <div class="segment-line"></div>
+                    </div>
+                    <div class="gallery-grid">
+                        <!-- 10 Images -->
+                        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1525921429618-f51700558878?q=80&w=2071&auto=format&fit=crop" alt="Graduation"><div class="gallery-overlay"><span class="gallery-icon">+</span></div></div>
+                        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1627556704290-2b1f5853ff78?q=80&w=2070&auto=format&fit=crop" alt="Graduation"><div class="gallery-overlay"><span class="gallery-icon">+</span></div></div>
+                        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?q=80&w=2070&auto=format&fit=crop" alt="Graduation"><div class="gallery-overlay"><span class="gallery-icon">+</span></div></div>
+                        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=2070&auto=format&fit=crop" alt="Graduation"><div class="gallery-overlay"><span class="gallery-icon">+</span></div></div>
+                        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1606092195730-5d7b9af1ef4d?q=80&w=2070&auto=format&fit=crop" alt="Graduation"><div class="gallery-overlay"><span class="gallery-icon">+</span></div></div>
+                        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?q=80&w=1949&auto=format&fit=crop" alt="Graduation"><div class="gallery-overlay"><span class="gallery-icon">+</span></div></div>
+                        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1535982330050-f1c2fb970584?q=80&w=2070&auto=format&fit=crop" alt="Graduation"><div class="gallery-overlay"><span class="gallery-icon">+</span></div></div>
+                        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1561489404-4348750a9fb9?q=80&w=2070&auto=format&fit=crop" alt="Graduation"><div class="gallery-overlay"><span class="gallery-icon">+</span></div></div>
+                        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1629814249159-e48b45508a3d?q=80&w=2070&auto=format&fit=crop" alt="Graduation"><div class="gallery-overlay"><span class="gallery-icon">+</span></div></div>
+                        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1519452575417-564c140db3c2?q=80&w=2070&auto=format&fit=crop" alt="Graduation"><div class="gallery-overlay"><span class="gallery-icon">+</span></div></div>
                     </div>
                 </div>
+
+                <!-- Segment 2: Sports -->
+                <div class="gallery-segment reveal-up">
+                    <div class="segment-title">
+                        <h3>Sports & Athletics</h3>
+                        <div class="segment-line"></div>
+                    </div>
+                    <div class="gallery-grid">
+                        <!-- 10 Images -->
+                        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1526232761682-d26e03ac148e?q=80&w=2029&auto=format&fit=crop" alt="Sports"><div class="gallery-overlay"><span class="gallery-icon">+</span></div></div>
+                        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=2070&auto=format&fit=crop" alt="Sports"><div class="gallery-overlay"><span class="gallery-icon">+</span></div></div>
+                        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1574629810360-7efbbe4384d4?q=80&w=2070&auto=format&fit=crop" alt="Sports"><div class="gallery-overlay"><span class="gallery-icon">+</span></div></div>
+                        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1511886929837-354d827aae26?q=80&w=1964&auto=format&fit=crop" alt="Sports"><div class="gallery-overlay"><span class="gallery-icon">+</span></div></div>
+                        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?q=80&w=2067&auto=format&fit=crop" alt="Sports"><div class="gallery-overlay"><span class="gallery-icon">+</span></div></div>
+                        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1544698310-74ea9d188d17?q=80&w=2070&auto=format&fit=crop" alt="Sports"><div class="gallery-overlay"><span class="gallery-icon">+</span></div></div>
+                        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1575361204480-aadea25e6e68?q=80&w=2071&auto=format&fit=crop" alt="Sports"><div class="gallery-overlay"><span class="gallery-icon">+</span></div></div>
+                        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1628779238951-bd5c9e974e1e?q=80&w=2070&auto=format&fit=crop" alt="Sports"><div class="gallery-overlay"><span class="gallery-icon">+</span></div></div>
+                        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=2070&auto=format&fit=crop" alt="Sports"><div class="gallery-overlay"><span class="gallery-icon">+</span></div></div>
+                        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?q=80&w=1974&auto=format&fit=crop" alt="Sports"><div class="gallery-overlay"><span class="gallery-icon">+</span></div></div>
+                    </div>
+                </div>
+
             </div>
         </section>
-    </main>
 
-    <!-- ===== FOOTER ===== -->
-    <footer class="bg-navy text-white">
-        <div class="container mx-auto px-4 py-12">
-            <div class="grid md:grid-cols-4 gap-8 text-center md:text-left">
-                <div>
-                    <h4 class="text-xl font-serif mb-4">Abuja Int'l Academy</h4>
-                    <p class="text-gray-400">Building Future Leaders</p>
-                </div>
-                <div>
-                    <h5 class="font-bold mb-4">Quick Links</h5>
-                    <nav class="flex flex-col space-y-2">
-                        <a href="about.html" class="text-gray-300 hover:text-gold">About Us</a>
-                        <a href="admissions.html" class="text-gray-300 hover:text-gold">Admissions</a>
-                        <a href="news.html" class="text-gray-300 hover:text-gold">News & Events</a>
-                        <a href="calendar.html" class="text-gray-300 hover:text-gold">Calendar</a>
-                        <a href="contact.html" class="text-gray-300 hover:text-gold">Contact</a>
-                    </nav>
-                </div>
-                <div>
-                    <h5 class="font-bold mb-4">Contact Us</h5>
-                    <p class="text-gray-300">info@aia.edu.ng</p>
-                    <p class="text-gray-300">+234 801 234 5678</p>
-                </div>
-                <div>
-                    <h5 class="font-bold mb-4">Follow Us</h5>
-                    <div class="flex justify-center md:justify-start space-x-4 text-2xl">
-                        <a href="#" class="hover:text-gold"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="hover:text-gold"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="hover:text-gold"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="hover:text-gold"><i class="fab fa-linkedin-in"></i></a>
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-grid">
+                    <div>
+                        <h4>Abuja Int. Academy</h4>
+                        <p>Building Future Leaders since 2010.</p>
+                    </div>
+                    <div>
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="news.html">News & Gallery</a></li>
+                            <li><a href="admissions.html">Admissions</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Contact</h4>
+                        <ul>
+                            <li>City College Campus</li>
+                            <li>Mararaba Campus</li>
+                            <li>info@aia.edu.ng</li>
+                        </ul>
                     </div>
                 </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Abuja International Academy. All Rights Reserved.</p>
+                </div>
             </div>
-            <div class="text-center text-gray-500 border-t border-gray-700 mt-8 pt-6">
-                <p>&copy; <span id="current-year"></span> Abuja International Academy. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
-    
+        </footer>
+
+    </main>
+
     <script src="script.js"></script>
 </body>
 </html>
-

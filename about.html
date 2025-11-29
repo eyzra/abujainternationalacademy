@@ -1,146 +1,258 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Abuja International Academy</title>
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Google Fonts -->
+    <title>About Us | Abuja International Academy</title>
+    
+    <!-- Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <!-- Custom Stylesheet -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/AIA.png" type="image/x-icon">
 </head>
-<body class="bg-white">
+<body>
 
-    <!-- ===== HEADER ===== -->
-    <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 px-4 sm:px-6 lg:px-8 header-scrolled">
-        <div class="container mx-auto flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold font-serif text-navy">AIA</a>
-            
-            <!-- Desktop Navigation -->
-            <nav class="hidden lg:flex items-center space-x-8">
-                <a href="index.html" class="nav-link link-underline text-navy hover:text-gold transition-colors" data-page="home">Home</a>
-                <a href="about.html" class="nav-link link-underline text-navy hover:text-gold transition-colors" data-page="about">About Us</a>
-                <a href="academics.html" class="nav-link link-underline text-navy hover:text-gold transition-colors" data-page="academics">Academics</a>
-                <a href="admissions.html" class="nav-link link-underline text-navy hover:text-gold transition-colors" data-page="admissions">Admissions</a>
-                <a href="gallery.html" class="nav-link link-underline text-navy hover:text-gold transition-colors" data-page="gallery">Gallery</a>
-                <div class="relative group">
-                    <a href="news.html" class="nav-link link-underline text-navy hover:text-gold transition-colors flex items-center cursor-pointer">
-                        News & Events
-                        <i class="fas fa-chevron-down ml-2 text-xs transition-transform group-hover:rotate-180"></i>
-                    </a>
-                    <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 w-48 z-50 py-1">
-                        <a href="calendar.html" class="block px-4 py-2 text-navy hover:bg-gray-100 hover:text-gold">Events Calendar</a>
-                    </div>
-                </div>
-                <a href="contact.html" class="nav-link link-underline text-navy hover:text-gold transition-colors" data-page="contact">Contact</a>
-            </nav>
+    <!-- NAV TRIGGER (Reused) -->
+    <div id="crown-toggle" class="crown-toggle" title="Toggle Menu">
+        <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14"></path>
+        </svg>
+    </div>
 
-            <div class="flex items-center">
-                <a href="contact.html" class="hidden lg:inline-block bg-gold text-white font-bold py-2 px-6 rounded-lg shadow-md hover:bg-opacity-90 transition-all transform hover:scale-105">Enquire Now</a>
-                
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-button" class="lg:hidden text-navy text-2xl ml-4">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
+    <!-- SIDEBAR NAVIGATION -->
+    <aside id="side-nav" class="side-nav">
+        <div class="nav-content-vertical">
+            <div class="logo">AIA.</div>
+            <ul class="nav-links-vertical">
+                <!-- Values removed from nav as requested -->
+                <li><a href="index.html" class="nav-link-item">Home</a></li>
+                <li><a href="about.html" class="nav-link-item">About Us</a></li>
+                <li><a href="campuses.html" class="nav-link-item">Campuses</a></li>
+                <li><a href="academics.html" class="nav-link-item">Academics</a></li>
+                <li><a href="news.html" class="nav-link-item">News</a></li>
+            </ul>
+            <a href="index.html#admissions" class="btn-main btn-white" style="margin-top: 2rem;">Enroll Now</a>
+        </div>
+    </aside>
+
+    <!-- ABOUT HERO with Flowing Animation -->
+    <header class="about-hero">
+        <div class="about-hero-content reveal-up">
+            <h1 class="classic-title white-text">Who We Are</h1>
+            <div class="separator" style="background: var(--white);"></div>
+            <p class="lead-text white-text">A legacy of excellence, character, and faith since 2010.</p>
+        </div>
+        <!-- CSS Flowing Wave Animation -->
+        <div class="wave-container">
+            <div class="wave wave1"></div>
+            <div class="wave wave2"></div>
+            <div class="wave wave3"></div>
         </div>
     </header>
 
-    <!-- ===== MOBILE MENU ===== -->
-    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-64 bg-navy text-white p-8 transform translate-x-full transition-transform duration-300 ease-in-out z-50">
-        <button id="close-mobile-menu" class="absolute top-6 right-6 text-2xl">&times;</button>
-        <nav class="flex flex-col space-y-6 mt-12">
-            <a href="index.html" class="nav-link text-lg" data-page="home">Home</a>
-            <a href="about.html" class="nav-link text-lg" data-page="about">About Us</a>
-            <a href="academics.html" class="nav-link text-lg" data-page="academics">Academics</a>
-            <a href="admissions.html" class="nav-link text-lg" data-page="admissions">Admissions</a>
-            <a href="gallery.html" class="nav-link text-lg" data-page="gallery">Gallery</a>
-            <a href="contact.html" class="nav-link text-lg" data-page="contact">Contact</a>
-        </nav>
-    </div>
-
-    <!-- ===== MAIN CONTENT CONTAINER ===== -->
-    <main id="main-content" class="pt-24 lg:pt-32">
-        <section class="py-16 bg-gray-50">
-            <div class="container mx-auto px-4">
-                <h1 class="text-4xl lg:text-6xl font-serif text-navy text-center mb-12">Our Story</h1>
-                <div class="max-w-4xl mx-auto space-y-8 text-lg leading-relaxed">
-                    <div>
-                        <h2 class="text-3xl font-serif text-navy mb-4">Mission & Vision</h2>
-                        <p>Our mission is to provide a world-class education that nurtures inquisitive, principled, and balanced young people who are equipped to create a better world. Our vision is to be the leading educational institution in Nigeria, recognized for our commitment to excellence, innovation, and holistic development.</p>
-                    </div>
-                    <div>
-                        <h2 class="text-3xl font-serif text-navy mb-4">Our History</h2>
-                        <p>Founded in 2005, Abuja International Academy began with a simple yet powerful idea: to create a school that combines academic rigor with profound character development. From our humble beginnings with just a handful of students, we have grown into a thriving community, shaping the minds and futures of hundreds of young leaders each year.</p>
-                    </div>
-                     <div>
-                        <h2 class="text-3xl font-serif text-navy mb-4">Our Campuses</h2>
-                        <div class="grid md:grid-cols-2 gap-8">
-                            <div class="bg-white p-6 rounded-lg shadow-md">
-                                <img src="https://placehold.co/600x400/001F3F/FFFFFF?text=City+College+Campus" class="rounded-md mb-4 w-full h-48 object-cover">
-                                <h3 class="text-2xl font-serif text-navy">City College Campus</h3>
-                                <p class="text-gray-600">Our flagship campus, offering a full range of facilities in the heart of Abuja.</p>
-                            </div>
-                            <div class="bg-white p-6 rounded-lg shadow-md">
-                                <img src="https://placehold.co/600x400/D4AF37/FFFFFF?text=Mararaba+Campus" class="rounded-md mb-4 w-full h-48 object-cover">
-                                <h3 class="text-2xl font-serif text-navy">Mararaba Campus</h3>
-                                <p class="text-gray-600">A modern campus designed to serve our growing community with excellence.</p>
-                            </div>
+    <main>
+        <!-- INTRO & PHILOSOPHY -->
+        <section class="section-padding container">
+            <div class="welcome-grid">
+                <div class="reveal-up">
+                    <h4 class="gold-text">OUR MISSION</h4>
+                    <h2 class="section-title">Molding The Future.</h2>
+                    <p class="lead-text">
+                        Abuja International Academy is more than a school; it is a breeding ground for the leaders of tomorrow. We combine rigorous academic standards with a strong moral foundation to produce students who are not only intellectually capable but also ethically sound.
+                    </p>
+                    <p style="margin-top: 1rem; color: #666;">
+                        We believe in the "Total Child" concept—nurturing the head, the heart, and the hand.
+                    </p>
+                </div>
+                <div class="reveal-up delay-100">
+                    <div class="stat-card-grid">
+                        <div class="stat-card">
+                            <h3>15+</h3>
+                            <p>Years of Service</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>2000+</h3>
+                            <p>Alumni</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>100%</h3>
+                            <p>University Entry</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>2</h3>
+                            <p>Campuses</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-    </main>
 
-    <!-- ===== FOOTER ===== -->
-    <footer class="bg-navy text-white">
-        <div class="container mx-auto px-4 py-12">
-            <div class="grid md:grid-cols-4 gap-8 text-center md:text-left">
-                <div>
-                    <h4 class="text-xl font-serif mb-4">Abuja Int'l Academy</h4>
-                    <p class="text-gray-400">Building Future Leaders</p>
-                </div>
-                <div>
-                    <h5 class="font-bold mb-4">Quick Links</h5>
-                    <nav class="flex flex-col space-y-2">
-                        <a href="about.html" class="text-gray-300 hover:text-gold">About Us</a>
-                        <a href="admissions.html" class="text-gray-300 hover:text-gold">Admissions</a>
-                        <a href="contact.html" class="text-gray-300 hover:text-gold">Contact</a>
-                    </nav>
-                </div>
-                <div>
-                    <h5 class="font-bold mb-4">Contact Us</h5>
-                    <p class="text-gray-300">info@aia.edu.ng</p>
-                    <p class="text-gray-300">+234 801 234 5678</p>
-                </div>
-                <div>
-                    <h5 class="font-bold mb-4">Follow Us</h5>
-                    <div class="flex justify-center md:justify-start space-x-4 text-2xl">
-                        <a href="#" class="hover:text-gold"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="hover:text-gold"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="hover:text-gold"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="hover:text-gold"><i class="fab fa-linkedin-in"></i></a>
+        <!-- FOUNDER SECTION -->
+        <section class="founder-section section-padding" style="background: var(--off-white);">
+            <div class="container">
+                <div class="welcome-grid">
+                    <!-- Image Left -->
+                    <div class="welcome-img-wrapper reveal-up">
+                        <img src="img/Barnabas.jpg" alt="Dr. Barnabas Amu" class="welcome-img portrait-rect">
+                    </div>
+                    <!-- Text Right -->
+                    <div class="reveal-up delay-200">
+                        <h4 class="gold-text">THE EXECUTIVE DIRECTOR</h4>
+                        <h2 class="section-title">Dr. Barnabas Amu</h2>
+                        <p class="lead-text">
+                            A visionary educator and administrator, Dr. Barnabas Amu is leading AIA with a singular vision: to provide world-class education that remains accessible and rooted in Nigerian values.
+                        </p>
+                        <p style="margin-top: 1rem; color: #555;">
+                            "I saw a gap in the system where moral integrity was often sacrificed for academic speed. I wanted to build a place where a child could be brilliant <em>and</em> kind, competitive <em>and</em> compassionate."
+                        </p>
+                        <div class="signature-block">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Signature_sample.svg/1200px-Signature_sample.svg.png" alt="Signature" style="height: 40px; opacity: 0.6; margin-top: 1rem;">
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="text-center text-gray-500 border-t border-gray-700 mt-8 pt-6">
-                <p>&copy; <span id="current-year"></span> Abuja International Academy. All Rights Reserved.</p>
+        </section>
+
+        <!-- HISTORY TIMELINE -->
+        <section class="section-padding container">
+            <div class="section-header center reveal-up">
+                <h2 class="section-title">Our History</h2>
+                <div class="separator"></div>
             </div>
-        </div>
-    </footer>
-    
-    <!-- Custom JavaScript -->
+            
+            <div class="timeline">
+                <div class="timeline-item reveal-up">
+                    <div class="timeline-year">2010</div>
+                    <div class="timeline-content">
+                        <h3>Inception</h3>
+                        <p>AIA opens its doors at the City College campus with just 50 students and a vision.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal-up delay-100">
+                    <div class="timeline-year">2015</div>
+                    <div class="timeline-content">
+                        <h3>Expansion</h3>
+                        <p>Launch of the Mararaba Campus to serve the growing population in the outskirts.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal-up delay-200">
+                    <div class="timeline-year">2019</div>
+                    <div class="timeline-content">
+                        <h3>Digital Leap</h3>
+                        <p>Introduction of the CBT Centre and digital literacy curriculum.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal-up delay-300">
+                    <div class="timeline-year">2025</div>
+                    <div class="timeline-content">
+                        <h3>The Future</h3>
+                        <p>Celebrating 15 years of excellence and launching the new Scholarship Fund.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ACADEMIC STRUCTURE -->
+        <section class="section-padding" style="background: var(--primary); color: white;">
+            <div class="container">
+                <div class="section-header center reveal-up">
+                    <h2 class="section-title white-text">Academic Structure</h2>
+                    <p class="white-text">A comprehensive path from cradle to university.</p>
+                </div>
+
+                <div class="academic-grid">
+                    <div class="academic-card reveal-up">
+                        <div class="level-icon">👶</div>
+                        <h3>Early Years</h3>
+                        <p>Creche, Playgroup & Nursery. Focus on cognitive skills and social interaction.</p>
+                    </div>
+                    <div class="academic-card reveal-up delay-100">
+                        <div class="level-icon">🎒</div>
+                        <h3>Primary</h3>
+                        <p>Grades 1-6. Building a solid foundation in numeracy, literacy, and sciences.</p>
+                    </div>
+                    <div class="academic-card reveal-up delay-200">
+                        <div class="level-icon">🔬</div>
+                        <h3>Junior Secondary</h3>
+                        <p>JSS 1-3. Introducing diverse subjects and preparing for BECE.</p>
+                    </div>
+                    <div class="academic-card reveal-up delay-300">
+                        <div class="level-icon">🎓</div>
+                        <h3>Senior Secondary</h3>
+                        <p>SS 1-3. Science, Arts & Commercial departments focused on WAEC/JAMB excellence.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- REFLECTED VALUES (Detailed) -->
+        <section class="section-padding container">
+            <div class="section-header center reveal-up">
+                <h2 class="section-title">Core Values</h2>
+                <div class="separator"></div>
+            </div>
+            <div class="values-grid">
+                <div class="value-card reveal-up">
+                    <div class="icon-box">✦</div>
+                    <h3>Excellence</h3>
+                    <p>We refuse to settle for mediocrity. Every assignment, every lesson, and every interaction is an opportunity to be the best.</p>
+                </div>
+                <div class="value-card reveal-up delay-100">
+                    <div class="icon-box">⚖</div>
+                    <h3>Integrity</h3>
+                    <p>Honesty is our currency. We teach students that talent without character is a tragedy.</p>
+                </div>
+                <div class="value-card reveal-up delay-200">
+                    <div class="icon-box">☀</div>
+                    <h3>Faith</h3>
+                    <p>We are guided by spiritual principles that ground our students, giving them hope and a moral compass.</p>
+                </div>
+                <div class="value-card reveal-up delay-300">
+                    <div class="icon-box">🤝</div>
+                    <h3>Community</h3>
+                    <p>We are a family. We build strong bonds between home, school, and the wider society.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-grid">
+                    <div>
+                        <h4>Abuja Int. Academy</h4>
+                        <p>Building Future Leaders since 2010.</p>
+                    </div>
+                    <div>
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="index.html#admissions">Admissions</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Contact</h4>
+                        <ul>
+                            <li>City College Campus</li>
+                            <li>Mararaba Campus</li>
+                            <li>info@aia.edu.ng</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Abuja International Academy. All Rights Reserved.</p>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- Scripts (Reused) -->
     <script src="script.js"></script>
 </body>
 </html>
